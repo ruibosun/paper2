@@ -1,12 +1,12 @@
 ---
-title: "Paper 2"
+title: "Paper Two"
+author: 'SHAOHAN CHANG'
+date: 02-20-2023
+abstract: The investigation into how subway system openings affect urban air pollution, with a focus on particulate concentrations, is presented in this abstract. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city center, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
+date-format: "MM/DD/YYYY"
 format: pdf
-editor: shaohan chang 
+bibliography: "bib.bib"
 ---
-
-## Abstract 
-
-The investigation into how subway system openings affect urban air pollution, with a focus on particulate concentrations, is presented in this abstract. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city centre, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
 
 ## Introduction
 
@@ -20,26 +20,80 @@ The study aims to investigate the effect of subways on urban air pollution by us
 
 The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
 
+## Plot
+
+```{r}
+library(here)
+library(dplyr)
+
+subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+head(subway_data)
+
+subway_data<- subway_data %>%
+  mutate(Ridership = ifelse(Month == ' ' , NA, Ridership))
+
+
+```
+
+```{r}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: fig-one
+#| fig-cap: "Monthly Ridership in Santo Domingo, Dominican Republic"
+
+library(dplyr)
+library(ggplot2)
+subway_data_monthly <- subway_data %>% 
+  filter(ReferencePeriod != "Yearly")
+ggplot(subway_data_monthly, aes(x = Month, y = as.numeric(Ridership)/1000, group = 1)) +
+  coord_flip() +
+  geom_point(color = "red") +
+  labs(title = "Monthly Ridership in Santo Domingo, Dominican Republic",
+       x = "Month", y = "Ridership",
+       subtitle = "February 2000 - February 2020") +
+  theme_minimal() +
+  theme(plot.caption = element_text(size = 10))
+
+
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+
+# Filter the data to the desired year range and remove rows with missing values
+year_range <- subway_data %>% 
+  filter(Year >= 2000, Year <= 2010)
+
+year_range
+
+ggplot(year_range, aes(x = Month, y = as.numeric(Ridership)/1000)) +
+  geom_line(color = "blue") +
+  labs(title = "Subway Ridership in Santo Domingo, Dominican Republic",
+       x = "Month", y = "Ridership",
+       subtitle = "February 2000 - December 2010") +
+  theme_minimal() +
+  theme(plot.caption = element_text(size = 10))
 
 
 
-## Concluison
+```
 
+## Conclusion
 
 The paper discussed here is a study to investigate the impact of subway systems on air pollution in cities around the world. The study used two main data sources: satellite-recorded descriptions of the world's subway systems between February 2000 and December 2017 and measurements of the aerosol optical depth (AOD) of particulate matter in the air. The analysis used a comparison of changes in AOD in cities before and after the opening of the subway system to establish its causality.
 
 The results show that the average effect of subway opening on AOD is a small decrease that cannot be distinguished from zero, but there is significant heterogeneity among cities. Among the 26 cities whose AOD decreased after the opening of the subway, the cities with the initial level of AOD higher than the median had the largest decrease. The decline in AOD levels was found to persist for at least 4 years. The results also show that subway ridership is a key factor in reducing AOD levels, and that subway expansion beyond the initial line has little effect on AOD levels.
 
-The findings of this study provide important information for policymakers considering implementing a subway system to mitigate air pollution. The authors estimate that opening subways in an average city originally located in the upper half of the AOD distribution could prevent 22.5 infant deaths and 500 total deaths per year, worth about $43 million and $1 billion per year, respectively. The results suggest that subway systems may be cost-effective in reducing air pollution, especially in cities with high initial levels of AOD.
+The findings of this study provide important information for policymakers considering implementing a subway system to mitigate air pollution. The authors estimate that opening subways in an average city originally located in the upper half of the AOD distribution could prevent 22.5 infant deaths and 500 total deaths per year, worth about \$43 million and \$1 billion per year, respectively. The results suggest that subway systems may be cost-effective in reducing air pollution, especially in cities with high initial levels of AOD.
 
-The study also sheds light on traffic behaviour in developing nations, concluding that there are no differences between how developed and developing cities react to subways. This is a significant finding because developing nations may have a greater need for affordable air pollution solutions.
+The study also sheds light on traffic behavior in developing nations, concluding that there are no differences between how developed and developing cities react to subways. This is a significant finding because developing nations may have a greater need for affordable air pollution solutions.
 
-The Terra and Aqua satellites' remote sensing measurements of suspended particulate matter served as the basis for the study's data. Using satellite imagery from the Terra and Aqua satellites, the study evaluated the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5) within 10 km of the city centre. The findings demonstrate that AOD is a highly reliable predictor of ground-measured particulate matter and that there is no significant relationship with the precise area used to derive the city-average AOD. The study made use of monthly averages of AOD readings for pixel days that occurred within a 10-kilometer radius of the city centre during the month, weighted by the number of pixels observed on each day.
+The Terra and Aqua satellites' remote sensing measurements of suspended particulate matter served as the basis for the study's data. Using satellite imagery from the Terra and Aqua satellites, the study evaluated the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5) within 10 km of the city center. The findings demonstrate that AOD is a highly reliable predictor of ground-measured particulate matter and that there is no significant relationship with the precise area used to derive the city-average AOD. The study made use of monthly averages of AOD readings for pixel days that occurred within a 10-kilometer radius of the city center during the month, weighted by the number of pixels observed on each day.
 
 The study's use of changes in AOD levels to gauge the effect of the subway system on air pollution has some limitations. Although AOD is a trustworthy indicator of air pollution, it is only one facet of the intricate issue of urban air pollution. Future studies should look into how the subway system affects other pollutants and the overall quality of the air.
 
-In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution.
-## Reference 
+In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. \## Reference
 
-
-
+## Reference
