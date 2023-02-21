@@ -22,6 +22,8 @@ The results of a study on the Aerial Optical Depth (AOD) within 10 km of city ce
 
 ## Plot
 
+## Part One
+
 ```{r}
 library(here)
 library(dplyr)
@@ -78,6 +80,23 @@ ggplot(year_range, aes(x = Month, y = as.numeric(Ridership)/1000)) +
 
 
 
+```
+
+## Part Two 
+
+```{r}
+library(here)
+library(dplyr)
+
+pm10 <- read.csv(file = '/Users/lucas/Documents/paper2/ppm.csv')
+head(pm10)
+
+
+```
+
+```{r}
+pm10 |>
+  group_by(Year,Country) 
 ```
 
 ## Conclusion
