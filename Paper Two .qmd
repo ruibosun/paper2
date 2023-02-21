@@ -24,6 +24,26 @@ The results of a study on the Aerial Optical Depth (AOD) within 10 km of city ce
 
 ## Part One
 
+The effect of subway systems on global urban air pollution is examined. A description of the world's subway networks and a measurement of airborne particles called Aerosol Optical Depth (AOD), which satellites acquired between February 2000 and December 2017, are its two main data sources. To determine the causal relationship between the opening of a subway system and changes in AOD within a city, the analysis compares changes in AOD before and after its establishment.
+
+-   Country: the nation in which the city is situated (EX. Chile)
+
+-   Urban name: the title of the city or town (EX. Valparaiso)
+
+-   Year: either the year of the month (for monthly data) or the year of the observation (for monthly data)
+
+-   Quarter: the observational quarter (for quarterly data)
+
+-   Month: the observation's month (for monthly data)
+
+-   Number of riders for the specified observation, or "ridership"
+
+-   Reference Period: The time frame used as a baseline for the observation (e.g., "Yearly" or "Monthly")
+
+-   The monthly data contains one observation per month, but the annual data contains just one observation per year. It appears that the monthly data spans the months of 2000 and 2020.
+
+The information is limited to the urban area surrounding Valparaiso and does not cover other parts of Chile. Furthermore, the data set offers no details regarding the underlying variables that might be responsible for changes in ridership over time.
+
 ```{r}
 library(here)
 library(dplyr)
@@ -36,6 +56,8 @@ subway_data<- subway_data %>%
 
 
 ```
+
+In figure one, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
 
 ```{r}
 #| eval: true
@@ -70,19 +92,9 @@ year_range <- subway_data %>%
 
 year_range
 
-ggplot(year_range, aes(x = Month, y = as.numeric(Ridership)/1000)) +
-  geom_line(color = "blue") +
-  labs(title = "Subway Ridership in Santo Domingo, Dominican Republic",
-       x = "Month", y = "Ridership",
-       subtitle = "February 2000 - December 2010") +
-  theme_minimal() +
-  theme(plot.caption = element_text(size = 10))
-
-
-
 ```
 
-## Part Two 
+## Part Two
 
 ```{r}
 library(here)
