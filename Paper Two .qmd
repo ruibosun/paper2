@@ -8,9 +8,9 @@ format: pdf
 bibliography: "bib.bib"
 ---
 
-## Introduction
+# Introduction
 
-The paper investigates the impact of subway systems on air pollution in cities around the world. It uses two main data sources: a description of the world's subway systems and a measure of airborne particulates, Aerosol Optical Depth (AOD), recorded by satellites between February 2000 and December 2017. The analysis uses a comparison of changes in AOD within a city before and after the opening of a subway system to establish its causal effect.
+The paper investigates the impact of subway systems on air pollution in cities around the world. It uses two main data sources: a description of the world's subway systems and a measure of airborne particulates, Aerosol Optical Depth (AOD), recorded by satellites between February 2000 and December 2017. The analysis uses a comparison of changes in AOD within a city before and after the opening of a subway system to establish its causal effect. Most of the data and basic analysis are from Nicolas Gendron-Carrier's paper of "Subways and Urban Air Pollution". (@ Subways and Urban Air Pollution)
 
 The results show that the average effect of subway openings on AOD is a small decrease that cannot be distinguished from zero, but there is significant heterogeneity across cities. In the case of the 26 cities where AOD fell after the subway opened, the decrease was largest in cities whose initial level of AOD was above the median. The decrease in AOD levels was found to persist for at least 4 years. The results also indicate that subway ridership is a key factor in reducing AOD levels and that subway expansions beyond the initial line have small effects on AOD levels.
 
@@ -20,9 +20,24 @@ The study aims to investigate the effect of subways on urban air pollution by us
 
 The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
 
-## Plot
+# Data
+All the data that is used for replication in this paper is collected by Nicolas Gendron-Carrier et al. Their study collected data from multiple sources and employed various techniques to analyze the data and draw conclusions about the impact of subway systems on air pollution.
 
-## Part One
+## Pollution Measured by Satellite
+The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectroradiometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution. (@Remer, L. A., S. Mattooand R. C. Levy, and L. A. Munchak. 2013. Modis 3km aerosol product: algorithm and global perspective. Atmospheric Measurement Techniques 6: 1829–1844.)
+
+## Subway Data
+Furthermore, the study also collected data on the opening of subway systems in various cities around the world. The data included the date of the subway system opening, the location of the subway system, and the size of the subway system. manually collected data on the latitude, longitude, and date of opening of every subway station in the world between January 2012 and February 2014. They updated the data in 2020 using online sources and Google Maps. The data were used to construct a monthly panel that describes the count of operational stations in each subway city between February 2000 and December 2017, which was the time period for which air pollution data were available. 
+
+To analyze the impact of subway systems on air pollution, the study used a difference-in-differences approach. This involved comparing the change in particulate concentrations in cities with newly opened subway systems to the change in particulate concentrations in cities without new subway systems. The study also compared the change in particulate concentrations in cities with high initial pollution levels to the change in particulate concentrations in cities with low initial pollution levels.
+
+## Possible Condounding Variables
+To account for other factors that could affect particulate concentrations, such as changes in weather or seasonal variations, the study used a variety of statistical techniques, including regression analysis and fixed effects models. The study also controlled for other variables that could affect air pollution, such as population density, income levels, and proximity to industrial areas.
+
+
+# Plot
+
+# Part One
 
 The effect of subway systems on global urban air pollution is examined. A description of the world's subway networks and a measurement of airborne particles called Aerosol Optical Depth (AOD), which satellites acquired between February 2000 and December 2017, are its two main data sources. To determine the causal relationship between the opening of a subway system and changes in AOD within a city, the analysis compares changes in AOD before and after its establishment.
 
@@ -94,7 +109,7 @@ year_range
 
 ```
 
-## Part Two
+# Part Two
 
 ```{r}
 library(here)
@@ -111,7 +126,7 @@ pm10 |>
   group_by(Year,Country) 
 ```
 
-## Conclusion
+# Conclusion
 
 The paper discussed here is a study to investigate the impact of subway systems on air pollution in cities around the world. The study used two main data sources: satellite-recorded descriptions of the world's subway systems between February 2000 and December 2017 and measurements of the aerosol optical depth (AOD) of particulate matter in the air. The analysis used a comparison of changes in AOD in cities before and after the opening of the subway system to establish its causality.
 
@@ -125,6 +140,6 @@ The Terra and Aqua satellites' remote sensing measurements of suspended particul
 
 The study's use of changes in AOD levels to gauge the effect of the subway system on air pollution has some limitations. Although AOD is a trustworthy indicator of air pollution, it is only one facet of the intricate issue of urban air pollution. Future studies should look into how the subway system affects other pollutants and the overall quality of the air.
 
-In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. \## Reference
+In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. \# Reference
 
-## Reference
+# Reference
