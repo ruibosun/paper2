@@ -66,7 +66,8 @@ The information is limited to the urban area surrounding Valparaiso and does not
 library(here)
 library(dplyr)
 
-subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+#subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+subway_data <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
 head(subway_data)
 
 subway_data<- subway_data %>%
@@ -132,15 +133,44 @@ pm10 |>
 ## Part Three
 
 ```{r}
-{r}
 library(here)
 library(dplyr)
 
-subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+#subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+
 
 
 subway_city
 ```
+
+## plot four
+```{r}
+library(readxl)
+raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
+raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
+raw_pm10$Year...4<-as.numeric(as.character(raw_pm10$Year...4))
+pm10<-raw_pm10%>%select(...2,`Annual mean, ug/m3...3`, Year...4)%>%filter(!is.na(...2))
+colnames(pm10)<-c("Country", "PM10 Annual mean, ug/m3","Year")
+
+#plot1
+pm10%>%group_by(Country)%>%
+  ggplot(aes(x=Country , y=pm10$`PM10 Annual mean, ug/m3`,  fill=Country)) + 
+    coord_flip() +
+    geom_bar(stat="identity", width=.90) + 
+    xlab("") + # Set axis labels
+    ylab("") + 
+    guides(fill=FALSE) +
+    ggtitle("Number of Turbine Manufacturers by Country")
+#plot2
+ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "loess", se = FALSE, color = "red") +
+  geom_text(aes(label = Country), hjust = -0.2, vjust = 1.2, size = 1.5)+
+  theme_minimal()
+```
+
 
 The scatterplot that this code generates displays the correlation between the start of work and the opening date for various cities. Using the ggplot tool from the ggplot2 library, a scatterplot is produced. The x and y aesthetic mappings are defined as the start of construction and the opening date, respectively, in the data frame subway city that houses the information. To depict each individual data point on the plot, points are added using the geom point function.
 
