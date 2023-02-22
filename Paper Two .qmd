@@ -144,7 +144,7 @@ subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/subway
 subway_city
 ```
 
-## plot four
+## Plot Four
 ```{r}
 library(readxl)
 raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
