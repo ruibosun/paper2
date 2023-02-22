@@ -162,6 +162,7 @@ pm10%>%group_by(Country)%>%
     ylab("") + 
     guides(fill=FALSE) +
     ggtitle("Number of Turbine Manufacturers by Country")
+
 #plot2
 ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
   geom_point() +
