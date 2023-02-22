@@ -145,7 +145,11 @@ subway_city
 ```
 
 ## Plot Four
-```{r}
+
+The plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. There are no axis labels or y-axis titles, and the plot is 10 units wide by 1 unit height. The plot's title, "Number of Turbine Manufacturers by Country," may not correctly describe its contents because it seems to be more concerned with PM10 values than turbine manufacturers. Despite this, the plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations.
+
+
+```{r ,fig.width= 7,fig.height= 5}
 library(readxl)
 raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
@@ -177,7 +181,7 @@ The scatterplot that this code generates displays the correlation between the st
 
 Additionally, two smoothed lines are added by the code to the plot in order to highlight the data's pattern and overall distributional shape. A linear regression line is the first flattened line, and a smoothed curve called a Loess curve is the second smoothed line.
 
-```{r}
+```{r ,fig.width= 7,fig.height= 5}
 library(ggplot2)
 
 ggplot(subway_city, aes(x = Begin.construction.date, y = Opening.date)) +
