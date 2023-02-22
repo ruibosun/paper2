@@ -1,0 +1,46 @@
+---
+title: "part two"
+author: "shaohan"
+format: pdf
+editor: visual
+---
+
+## 
+
+```{r}
+library(here)
+library(dplyr)
+
+subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+
+
+subway_city
+```
+
+The scatterplot that this code generates displays the correlation between the start of work and the opening date for various cities. Using the ggplot tool from the ggplot2 library, a scatterplot is produced. The x and y aesthetic mappings are defined as the start of construction and the opening date, respectively, in the data frame subway city that houses the information. To depict each individual data point on the plot, points are added using the geom point function.
+
+Additionally, two smoothed lines are added by the code to the plot in order to highlight the data's pattern and overall distributional shape. A linear regression line is the first flattened line, and a smoothed curve called a Loess curve is the second smoothed line.
+
+```{r}
+library(ggplot2)
+
+ggplot(subway_city, aes(x = Begin.construction.date, y = Opening.date)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "loess", se = FALSE, color = "red") +
+  geom_text(aes(label = City), hjust = -0.2, vjust = 1.2, size = 1.5) +
+  labs(x = "Begin construction date", y = "Opening date", title = "Opening date vs. Begin construction date for cities")
+
+
+```
+
+```{r}
+new_subway_city <- subway_city |>
+  select(-Links,-Notes) |>
+  arrange(Opening.date)
+```
+
+```{r}
+library(knitr)
+kable(head(new_subway_city,10), caption = "Table 1: Subway_City (First 5 rows)")
+```
