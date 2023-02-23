@@ -1,4 +1,4 @@
----
+c---
 title: "Paper Two"
 author: 'SHAOHAN CHANG'
 date: 02-20-2023
@@ -66,8 +66,8 @@ The information is limited to the urban area surrounding Valparaiso and does not
 library(here)
 library(dplyr)
 
-#subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
-subway_data <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
+subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+#subway_data <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
 head(subway_data)
 
 subway_data<- subway_data %>%
@@ -75,6 +75,32 @@ subway_data<- subway_data %>%
 
 
 ```
+
+
+With the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 100.
+
+
+```{r ,fig.width= 5,fig.height= 3}
+library(ggplot2)
+
+# Plot the data using ggplot
+ggplot(subway_data, aes(x = Year,  y = as.numeric(Ridership)/100, fill = Year)) +
+  geom_col() +
+  labs(x = "Year", y = "Ridership (in thousands)", fill = "Year") +
+  ggtitle("Ridership in Valparaiso, Chile") +
+  scale_fill_gradient(low = "yellow", high = "red") +
+  theme_classic() +
+  theme(plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
+        axis.text.x = element_text(size = 10),
+        axis.text.y = element_text(size = 12),
+        axis.title.x = element_text(size = 14, face = "bold"),
+        axis.title.y = element_text(size = 14, face = "bold"),
+        legend.title = element_text(size = 12, face = "bold"),
+        legend.text = element_text(size = 12))
+
+```
+
+
 
 In figure one, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
 
