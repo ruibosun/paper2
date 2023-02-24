@@ -24,7 +24,7 @@ The study provides important information for policymakers considering the implem
 
 The study aims to investigate the effect of subways on urban air pollution by using data from a panel of cities. The subways data, used from Gonzalez-Navarro and Turner (2018) and updated to December 2017, define a subway as an electric-powered urban rail system isolated from interactions with vehicle and pedestrian traffic. The latitude, longitude, and date of opening of every subway station in the world were compiled manually between 2012 and 2014. The air pollution data used are based on remotely sensed measures of suspended particulates from Terra and Aqua satellites, providing daily measures of aerosol optical depth of the atmosphere at a 3 km spatial resolution from 2000 to 2017. The study considers the change in aerosol optical depth (AOD) in the period extending from 18 months before to 18 months after a subway opening, using a sample of 58 subway system openings between 2001 and 2016. The study also has ridership data for 42 of the 58 cities, with an average daily ridership of 130,000 people in the 18th month of operation. The study finds that ridership triples over the first three years of operation and begins to slow after three years. The average time construction began was 77 months prior to the opening.
 
-The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
+The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities.
 
 ## 1.1 Analysis Tool
 The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R @R  with packages of tidyverse @tidyverse, dplyr @dplyr. The tables is constructed via knitr @knitr. The package inside of tidyverse helps to create the plots via ggplot2 @tidyverse. This paper is knitted as PDF file by the packages of R markdown @RMarkdown.
@@ -69,7 +69,7 @@ The effect of subway systems on global urban air pollution is examined. A descri
 
 -   The monthly data contains one observation per month, but the annual data contains just one observation per year. It appears that the monthly data spans the months of 2000 and 2020.
 
-In Table 1 ,The information is limited to the urban area surrounding Valparaiso and does not cover other parts of Chile. Furthermore, the data set offers no details regarding the underlying variables that might be responsible for changes in ridership over time. It is clear to see that the ridership increase a lot since 2005. The ridership keeps increasing each year, which indicates more and more peopel have choose to travel with subway.
+In Table 1,The information is limited to the urban area surrounding Valparaiso and does not cover other parts of Chile. Furthermore, the data set offers no details regarding the underlying variables that might be responsible for changes in ridership over time. It is clear to see that the ridership increase a lot since 2005. The ridership keeps increasing each year, which indicates more and more peopel have choose to travel with subway.
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -90,7 +90,7 @@ table <- subway_data %>%
 kable(head(table,5), caption = "Subway City (First 5 rows)")
 ```
 
-In the Figure 1, with the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 1000. This graph is similar to Table 1. Instead of using numbers, this plot provide a more vivid trend of the change in ridership. 
+In the @fig-one, with the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 1000. This graph is similar to Table 1. Instead of using numbers, this plot provide a more vivid trend of the change in ridership. 
 
 ```{r ,fig.width= 5,fig.height= 3,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -118,7 +118,7 @@ ggplot(subway_data, aes(x = Year,  y = as.numeric(Ridership)/1000, fill = Year))
 
 ```
 
-In Figure 2, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
+In @fig-two, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -201,7 +201,7 @@ kable(mytable, caption = "Annaul Ridership in China (2005-2019)")
 
 ## 3.3 PM10 in Different Countries
 
-In Figure 3, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
+In @fig-three, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
 
 
 ```{r ,fig.width= 8,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
@@ -211,7 +211,8 @@ In Figure 3, the plot shows the average annual PM10 values for each nation, expr
 #| label: fig-four
 #| fig-cap: "Average of PM10 Yearly"
 library(readxl)
-raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
+#raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
+raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
 raw_pm10$Year...4<-as.numeric(as.character(raw_pm10$Year...4))
 pm10<-raw_pm10%>%select(...2,`Annual mean, ug/m3...3`, Year...4)%>%filter(!is.na(...2))
@@ -230,7 +231,7 @@ pm10%>%group_by(Country)%>%
 
 ```
 
-In Figure 4, the  mean of PM10 for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualization is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
+In @fig-four, the  mean of PM10 for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualization is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
  
 ```{r ,fig.width= 25,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -248,7 +249,7 @@ ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
 ```
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
-subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
 ```
 
 
