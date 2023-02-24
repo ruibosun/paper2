@@ -27,7 +27,7 @@ The study aims to investigate the effect of subways on urban air pollution by us
 The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
 
 ## Analysis Tool
-The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R (@R) with packages of tidyverse(@tidyverse), dplyr(@dplyr). The tables is constructed via knitr(@knite). The package inside of tidyverse helps to create the plots via ggplot2(@tidyverse). This paper is knitted as PDF file by the packages of R markdown (@RMarkdown).
+The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R @R  with packages of tidyverse(@tidyverse), dplyr(@dplyr). The tables is constructed via knitr(@knite). The package inside of tidyverse helps to create the plots via ggplot2(@tidyverse). This paper is knitted as PDF file by the packages of R markdown (@RMarkdown).
 
 # Data
 
@@ -79,10 +79,10 @@ In Table 1 ,The information is limited to the urban area surrounding Valparaiso 
 library(here)
 library(dplyr)
 library(knitr)
-#subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
-subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
+subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+#subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
 
-subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership)
+subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership,ReferencePeriod,Month)
 
 kable(head(subway_data,5), caption = "Subway City (First 5 rows)")
 ```
@@ -173,12 +173,13 @@ subway_data_monthly%>%filter(Country=="Chile")
 
 In Figure 3, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
 
+
 ```{r ,fig.width= 8,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
 #| warning: false
 #| echo: false
 #| label: fig-four
-#| fig-cap: "Number of Turbine Manufacturers by Country"
+#| fig-cap: "pm10"
 library(readxl)
 raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
@@ -206,7 +207,7 @@ In Figure 4, the  mean of PM10 for each nation in each year is displayed on this
 #| warning: false
 #| echo: false
 #| label: fig-five
-#| fig-cap: "Number of Turbine Manufacturers by Country"
+#| fig-cap: "Relation by year"
 
 ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
   geom_point() +
@@ -241,8 +242,6 @@ kable(head(new_subway_city,10), caption = "Subway_City (First 5 rows)")
 # Conclusion
 
 The paper discussed here is a study to investigate the impact of subway systems on air pollution in cities around the world. The study used two main data sources: satellite-recorded descriptions of the world's subway systems between February 2000 and December 2017 and measurements of the aerosol optical depth (AOD) of particulate matter in the air. The analysis used a comparison of changes in AOD in Chile before and after the opening of the subway system to establish its causality.
-
-
 
 The findings of this study provide important information for policymakers considering implementing a subway system to mitigate air pollution. The authors estimate that opening subways in an average city originally located in the upper half of the AOD distribution could prevent 22.5 infant deaths and 500 total deaths per year, worth about \$43 million and \$1 billion per year, respectively. The results suggest that subway systems may be cost-effective in reducing air pollution, especially in cities with high initial levels of AOD. @citea
 
