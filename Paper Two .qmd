@@ -79,8 +79,8 @@ In Table 1 ,The information is limited to the urban area surrounding Valparaiso 
 library(here)
 library(dplyr)
 library(knitr)
-subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
-#subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
+#subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
 
 subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership,ReferencePeriod,Month)
 
@@ -156,7 +156,7 @@ year_range <- subway_data %>%
 
 
 ## 3.2 Subway in Chile
-In Table 2, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time.
+In Table 2, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time. This table is an analysis of Subway's annual ridership data in Chile from 2005 to 2009. After filtering the data to only include records for Chile, the new data is converted the Ridership column to a numeric format by removing commas. The table indicates the total ridership for each year in Chile. It is clear to see that the annual ridership increae each year. Especially in 2005-2006, the ridership increase more than 7,000,000.
 
 ```{r,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -166,13 +166,40 @@ In Table 2, the table includes information on Valparaiso, Chile's public transit
 library(here)
 library(dplyr)
 
-new <- subway_data_monthly%>%group_by(Country)%>%summarise(Total=sum(as.numeric(Ridership),na.rm=T))%>%filter(Country=="Chile")
 
-kable(head(subway_data_monthly,5), caption = "Subway City in Chile (First 5 rows)")
+new <- subway_data_monthly%>%filter(Country=="Chile")
+#new$Ridership<-as.numeric(new$Ridership)
+new$Ridership <- as.numeric(gsub(",", "", new$Ridership))
+
+mytable<-new%>%group_by(Country,Year)%>%summarise(`Total Ridership`=sum(Ridership))
+
+
+kable(mytable, caption = "Annaul Ridership in Chile (2005-2009)")
+```
+
+In comparison to Table 1, Table 2 is the annual ridership in China from 2005 to 2019. As a result, the ridership in China also shows an increasing pattern since 2005. However, there is a sharpe decresae from 2016 to 2017 in terms of the Ridership and it gradually increase back to the orginal level. Since China is a country with large population, the ridership are generally higher than the one in Chile.
+
+```{r,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: Tab-three
+library(here)
+library(dplyr)
+
+
+new <- subway_data_monthly%>%filter(Country=="China")
+#new$Ridership<-as.numeric(new$Ridership)
+new$Ridership <- as.numeric(gsub(",", "", new$Ridership))
+
+mytable<-new%>%group_by(Country,Year)%>%summarise(`Total Ridership`=sum(Ridership))
+
+
+kable(mytable, caption = "Annaul Ridership in China (2005-2019)")
 ```
 
 
-## 3.3 PM10 across Countries
+## 3.3 PM10 in Different Countries
 
 In Figure 3, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
 
@@ -234,13 +261,13 @@ new_subway_city <- subway_city |>
   arrange(Opening.date)
 ```
 
-In Table 3, the inauguration and construction times of various cities, as well as the plan year and an unnamed variable X, are listed in Table 3. Each community's unnamed infrastructure project is the subject of the material. The infrastructure project's completion year is indicated by the opening date, while the development phase's initial start year is indicated by the beginning building date. The project's original approach was developed during the plan year.
+In Table 4, the inauguration and construction times of various cities, as well as the plan year and an unnamed variable X, are listed in Table 4. Each community's unnamed infrastructure project is the subject of the material. The infrastructure project's completion year is indicated by the opening date, while the development phase's initial start year is indicated by the beginning building date. The project's original approach was developed during the plan year.
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
 #| warning: false
 #| echo: false
-#| label: Tab-three
+#| label: Tab-four
 library(knitr)
 kable(head(new_subway_city,10), caption = "Subway_City (First 5 rows)")
 ```
