@@ -1,22 +1,22 @@
-c---
+---
 title: "Paper Two"
 author: 'SHAOHAN CHANG'
 date: 02-20-2023
 abstract: The investigation into how subway system openings affect urban air pollution, with a focus on particulate concentrations, is presented in this abstract. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city center, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
-date-format: "MM/DD/YYYY"
+date-format: "MM/DD/YYYY" 
 format: pdf
 bibliography: "bib.bib"
 ---
 
 # Introduction
 
-Air pollution is a significant contributor to the development of disease and premature death, and is widely recognized as the largest environmental risk factor to human health globally (WHO, 2016). (\@https://www.who.int/phe/publications/air-pollution-global-assessment/en/) Exposure to air pollution increases the risk of premature mortality from heart disease, stroke, and lung cancer. Advances in health and atmospheric sciences have made it possible to estimate the number of deaths and illnesses associated with air pollution, using information from peer-reviewed scientific literature. The relationship between population-level pollution exposure, both short-term and long-term, and adverse health outcomes, including premature death and hospital visits, is expressed through the concentration-response function. Cohen et al. (\@https://pubmed.ncbi.nlm.nih.gov/28408086/), the Institute for Health Metrics and Evaluation and the Health Effects Institute, and the World Health Organization have developed estimates of air pollution-attributable deaths and other adverse health outcomes globally and for individual countries. (\@https://www.who.int/phe/publications/air-pollution-global-assessment/en/)
+Air pollution is a significant contributor to the development of disease and premature death, and is widely recognized as the largest environmental risk factor to human health globally @a. Exposure to air pollution increases the risk of premature mortality from heart disease, stroke, and lung cancer. Advances in health and atmospheric sciences have made it possible to estimate the number of deaths and illnesses associated with air pollution, using information from peer-reviewed scientific literature. The relationship between population-level pollution exposure, both short-term and long-term, and adverse health outcomes, including premature death and hospital visits, is expressed through the concentration-response function. Cohen et al. @b, the Institute for Health Metrics and Evaluation and the Health Effects Institute, and the World Health Organization have developed estimates of air pollution-attributable deaths and other adverse health outcomes globally and for individual countries @c.
 
-Globally, air pollution was responsible for 8.7% of deaths in 2017, making it the fifth leading mortality risk, with 4.9 million premature deaths worldwide. Canada is among the top 10 countries with the lowest national PM2.5 exposure levels, according to analyses. (\@https://www.stateofglobalair.org/)  In Canada, air pollution ranks as the 11th largest risk factor overall for premature death and disability, and is the top environmental risk. (\@https://www.canada.ca/en/health-canada/services/publications/healthy-living/2021-health-effects-indoor-air-pollution.html)
+Globally, air pollution was responsible for 8.7% of deaths in 2017, making it the fifth leading mortality risk, with 4.9 million premature deaths worldwide. Canada is among the top 10 countries with the lowest national PM2.5 exposure levels, according to analyses @d . In Canada, air pollution ranks as the 11th largest risk factor overall for premature death and disability, and is the top environmental risk @e.
 
-Therefore, it is crucial to reduce air pollution by introducing a stainable policy and method. According to LI and YIN (@\https://www.sciencedirect.com/science/article/abs/pii/S1570667211601906) and  Topalovic et al. (\@https://www.sciencedirect.com/science/article/pii/S0959652620341949#bbib50), subways are the most effective mode of transportation for reducing congestion and greenhouse emissions due to their speed, efficiency, safety, and environmental benefits. Furthermore, as noted by Chen and Whalley (@https://www.sciencedirect.com/science/article/pii/S0959652620341949#bbib10) and Gendron-Carrier et al. (\@https://www.sciencedirect.com/science/article/pii/S0959652620341949#bbib19), the operation of subways can lead to improvements in air quality, reduced mortality rates resulting from air pollution, increased productivity, and reduced social costs.
+Therefore, it is crucial to reduce air pollution by introducing a stainable policy and method. According to LI and YIN @f and Topalovic et al. @g, subways are the most effective mode of transportation for reducing congestion and greenhouse emissions due to their speed, efficiency, safety, and environmental benefits. Furthermore, as noted by Chen and Whalley @g . The operation of subways can lead to improvements in air quality, reduced mortality rates resulting from air pollution, increased productivity, and reduced social costs.
 
-The paper investigates the impact of subway systems on air pollution in cities around the world. It uses two main data sources: a description of the world's subway systems and a measure of airborne particulates, Aerosol Optical Depth (AOD), recorded by satellites between February 2000 and December 2017. The analysis uses a comparison of changes in AOD within a city before and after the opening of a subway system to establish its causal effect. Most of the data and basic analysis are from Nicolas Gendron-Carrier's paper of "Subways and Urban Air Pollution". (\@ Subways and Urban Air Pollution)
+The paper investigates the impact of subway systems on air pollution in cities around the world. It uses two main data sources: a description of the world's subway systems and a measure of airborne particulates, Aerosol Optical Depth (AOD), recorded by satellites between February 2000 and December 2017. The analysis uses a comparison of changes in AOD within a city before and after the opening of a subway system to establish its causal effect. Most of the data and basic analysis are from Nicolas Gendron-Carrier's paper of "Subways and Urban Air Pollution" @citea . 
 
 The results show that the average effect of subway openings on AOD is a small decrease that cannot be distinguished from zero, but there is significant heterogeneity across cities. In the case of the 26 cities where AOD fell after the subway opened, the decrease was largest in cities whose initial level of AOD was above the median. The decrease in AOD levels was found to persist for at least 4 years. The results also indicate that subway ridership is a key factor in reducing AOD levels and that subway expansions beyond the initial line have small effects on AOD levels.
 
@@ -32,7 +32,7 @@ All the data that is used for replication in this paper is collected by Nicolas 
 
 ## Pollution Measured by Satellite
 
-The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectroradiometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution. (@Remer, L. A., S. Mattooand R. C. Levy, and L. A. Munchak. 2013. Modis 3km aerosol product: algorithm and global perspective. Atmospheric Measurement Techniques 6: 1829--1844.)
+The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectrometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution. (@Remer, L. A., S. Mattooand R. C. Levy, and L. A. Munchak. 2013. Modis 3km aerosol product: algorithm and global perspective. Atmospheric Measurement Techniques 6: 1829--1844.)
 
 ## Subway Data
 
@@ -40,7 +40,7 @@ Furthermore, the study also collected data on the opening of subway systems in v
 
 To analyze the impact of subway systems on air pollution, the study used a difference-in-differences approach. This involved comparing the change in particulate concentrations in cities with newly opened subway systems to the change in particulate concentrations in cities without new subway systems. The study also compared the change in particulate concentrations in cities with high initial pollution levels to the change in particulate concentrations in cities with low initial pollution levels.
 
-## Possible Condounding Variables
+## Possible Confounding Variables
 
 To account for other factors that could affect particulate concentrations, such as changes in weather or seasonal variations, the study used a variety of statistical techniques, including regression analysis and fixed effects models. The study also controlled for other variables that could affect air pollution, such as population density, income levels, and proximity to industrial areas.
 
@@ -66,27 +66,32 @@ The effect of subway systems on global urban air pollution is examined. A descri
 
 -   The monthly data contains one observation per month, but the annual data contains just one observation per year. It appears that the monthly data spans the months of 2000 and 2020.
 
-The information is limited to the urban area surrounding Valparaiso and does not cover other parts of Chile. Furthermore, the data set offers no details regarding the underlying variables that might be responsible for changes in ridership over time.
+In table one ,The information is limited to the urban area surrounding Valparaiso and does not cover other parts of Chile. Furthermore, the data set offers no details regarding the underlying variables that might be responsible for changes in ridership over time.
 
-```{r}
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: tab-one
+#| fig-cap: "Ridership in Valparaiso, Chile"
 library(here)
 library(dplyr)
-
+library(knitr)
 subway_data <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
 #subway_data <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
-head(subway_data)
 
-subway_data<- subway_data %>%
-  mutate(Ridership = ifelse(Month == ' ' , NA, Ridership))
-
-
+kable(head(subway_data,5), caption = "Table 1: Subway_City (First 5 rows)")
 ```
 
+In the figure one,With the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 100.
 
-With the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 100.
+```{r ,fig.width= 5,fig.height= 3,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: fig-one
+#| fig-cap: "Ridership in Valparaiso, Chile"
 
-
-```{r ,fig.width= 5,fig.height= 3}
 library(ggplot2)
 
 # Plot the data using ggplot
@@ -106,15 +111,13 @@ ggplot(subway_data, aes(x = Year,  y = as.numeric(Ridership)/100, fill = Year)) 
 
 ```
 
+In figure two, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
 
-
-In figure one, the code and plot offered display a depiction of the monthly ridership for the Dominican Republic's Santo Domingo subway system. The month is represented by the x-axis, while the ridership is shown by the y-axis (in thousands).The monthly ridership for a particular month from February 2000 to February 2020 is represented by each red point on the plot. With some seasonal variations, the data demonstrates that ridership has usually increased over time. Also, it appears like there might be a decline in riding in the months that follow February 2020, however it's challenging to make definite predictions in the absence of more information.
-
-```{r}
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
 #| warning: false
 #| echo: false
-#| label: fig-one
+#| label: fig-two
 #| fig-cap: "Monthly Ridership in Santo Domingo, Dominican Republic"
 
 library(dplyr)
@@ -133,7 +136,7 @@ ggplot(subway_data_monthly, aes(x = Month, y = as.numeric(Ridership)/1000, group
 
 ```
 
-```{r}
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 library(dplyr)
 library(ggplot2)
 
@@ -141,49 +144,64 @@ library(ggplot2)
 year_range <- subway_data %>% 
   filter(Year >= 2000, Year <= 2010)
 
-year_range
-
 ```
 
-# Part Two
-
-```{r}
-library(here)
-library(dplyr)
-
-pm10 <- read.csv(file = '/Users/lucas/Documents/paper2/ppm.csv')
-head(pm10)
 
 
-```
+## Part Two
+In table two, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time.
 
-```{r}
-pm10 |>
-  group_by(Year,Country) 
-```
-
-## Part Three
-
-```{r}
+```{r,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: Tab-two
+#| fig-cap: "subway_date_construction_begins"
 library(here)
 library(dplyr)
 
 #subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
-subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
 
+kable(head(subway_data,5), caption = "Subway_City (First 5 rows)")
 
-
-subway_city
 ```
 
-## Plot Four
 
-The plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. There are no axis labels or y-axis titles, and the plot is 10 units wide by 1 unit height. The plot's title, "Number of Turbine Manufacturers by Country," may not correctly describe its contents because it seems to be more concerned with PM10 values than turbine manufacturers. Despite this, the plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations.
+In figure three,the scatterplot that this code generates displays the correlation between the start of work and the opening date for various cities. Using the ggplot tool from the ggplot2 library, a scatterplot is produced. The x and y aesthetic mappings are defined as the start of construction and the opening date, respectively, in the data frame subway city that houses the information. To depict each individual data point on the plot, points are added using the geom point function.
+
+```{r ,fig.width= 9,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: fig-three
+#| fig-cap: "Opening date vs. Begin construction date for cities"
+library(ggplot2)
+
+ggplot(subway_city, aes(x = Begin.construction.date, y = Opening.date)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  geom_smooth(method = "loess", se = FALSE, color = "red") +
+  geom_text(aes(label = City), hjust = -0.2, vjust = 1.2, size = 1.5) +
+  labs(x = "Begin construction date", y = "Opening date", title = "Opening date vs. Begin construction date for cities")
+
+```
 
 
-```{r ,fig.width= 7,fig.height= 5}
+
+
+## Plot Three
+
+In figrue four,the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. There are no axis labels or y-axis titles, and the plot is 10 units wide by 1 unit height. The plot's title, "Number of Turbine Manufacturers by Country," may not correctly describe its contents because it seems to be more concerned with PM10 values than turbine manufacturers. Despite this, the plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations.
+
+```{r ,fig.width= 8,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: fig-four
+#| fig-cap: "Number of Turbine Manufacturers by Country"
 library(readxl)
-raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
+raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
 raw_pm10$Year...4<-as.numeric(as.character(raw_pm10$Year...4))
 pm10<-raw_pm10%>%select(...2,`Annual mean, ug/m3...3`, Year...4)%>%filter(!is.na(...2))
@@ -199,7 +217,17 @@ pm10%>%group_by(Country)%>%
     guides(fill=FALSE) +
     ggtitle("Number of Turbine Manufacturers by Country")
 
-#plot2
+```
+
+In figure five, the PM10 number for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualisation is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
+
+```{r ,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: fig-five
+#| fig-cap: "Number of Turbine Manufacturers by Country"
+
 ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
@@ -209,31 +237,26 @@ ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
 ```
 
 
-The scatterplot that this code generates displays the correlation between the start of work and the opening date for various cities. Using the ggplot tool from the ggplot2 library, a scatterplot is produced. The x and y aesthetic mappings are defined as the start of construction and the opening date, respectively, in the data frame subway city that houses the information. To depict each individual data point on the plot, points are added using the geom point function.
 
-Additionally, two smoothed lines are added by the code to the plot in order to highlight the data's pattern and overall distributional shape. A linear regression line is the first flattened line, and a smoothed curve called a Loess curve is the second smoothed line.
+Two smoothed lines are added by the code to the plot in order to highlight the data's pattern and overall distributional shape. A linear regression line is the first flattened line, and a smoothed curve called a Loess curve is the second smoothed line.
 
-```{r ,fig.width= 7,fig.height= 5}
-library(ggplot2)
 
-ggplot(subway_city, aes(x = Begin.construction.date, y = Opening.date)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  geom_smooth(method = "loess", se = FALSE, color = "red") +
-  geom_text(aes(label = City), hjust = -0.2, vjust = 1.2, size = 1.5) +
-  labs(x = "Begin construction date", y = "Opening date", title = "Opening date vs. Begin construction date for cities")
-
-```
-
-```{r}
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
 new_subway_city <- subway_city |>
   select(-Links,-Notes) |>
   arrange(Opening.date)
 ```
 
-```{r}
+In table three, the inauguration and construction times of various cities, as well as the plan year and an unnamed variable X, are listed in table three. Each community's unnamed infrastructure project is the subject of the material. The infrastructure project's completion year is indicated by the opening date, while the development phase's initial start year is indicated by the beginning building date. The project's original approach was developed during the plan year.
+
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
+#| eval: true
+#| warning: false
+#| echo: false
+#| label: Tab-three
+#| fig-cap: "Subway_City"
 library(knitr)
-kable(head(new_subway_city,10), caption = "Table 1: Subway_City (First 5 rows)")
+kable(head(new_subway_city,10), caption = "Table 3: Subway_City (First 5 rows)")
 ```
 
 # Conclusion
@@ -248,10 +271,8 @@ The study also sheds light on traffic behavior in developing nations, concluding
 
 The Terra and Aqua satellites' remote sensing measurements of suspended particulate matter served as the basis for the study's data. Using satellite imagery from the Terra and Aqua satellites, the study evaluated the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5) within 10 km of the city center. The findings demonstrate that AOD is a highly reliable predictor of ground-measured particulate matter and that there is no significant relationship with the precise area used to derive the city-average AOD. The study made use of monthly averages of AOD readings for pixel days that occurred within a 10-kilometer radius of the city center during the month, weighted by the number of pixels observed on each day.
 
-There is also study which conducted in China. The results of the study matchs with our findings. It further suggests two policy recommendations. Firstly, the government should actively promote green transportation as an alternative to motor vehicles. This can be achieved by increasing the availability of green vehicles and reducing the number of public motor vehicles to reduce emissions. Secondly, the development of subway systems should be rationally planned to minimize the negative impact on urban air pollution, particularly PM2.5. The government can increase the accessibility of subways by developing a complex subway network, which can help meet residents' travel demands and reduce emissions. However, expanding existing subway lines may not be enough to change people's travel mode, so it may be more effective to increase the number of subway lines. Since subway projects are expensive, a rational plan for the subway network can help achieve the goal of reducing air pollution while also considering the fiscal investment required. (\@https://www.sciencedirect.com/science/article/pii/S0959652620341949)
+There is also study which conducted in China. The results of the study match with our findings. It further suggests two policy recommendations. Firstly, the government should actively promote green transportation as an alternative to motor vehicles. This can be achieved by increasing the availability of green vehicles and reducing the number of public motor vehicles to reduce emissions. Secondly, the development of subway systems should be rationally planned to minimize the negative impact on urban air pollution, particularly PM2.5. The government can increase the accessibility of subways by developing a complex subway network, which can help meet residents' travel demands and reduce emissions. However, expanding existing subway lines may not be enough to change people's travel mode, so it may be more effective to increase the number of subway lines. Since subway projects are expensive, a rational plan for the subway network can help achieve the goal of reducing air pollution while also considering the fiscal investment required @g. The study's use of changes in AOD levels to gauge the effect of the subway system on air pollution has some limitations. Although AOD is a trustworthy indicator of air pollution, it is only one facet of the intricate issue of urban air pollution. Future studies should look into how the subway system affects other pollutants and the overall quality of the air.
 
-The study's use of changes in AOD levels to gauge the effect of the subway system on air pollution has some limitations. Although AOD is a trustworthy indicator of air pollution, it is only one facet of the intricate issue of urban air pollution. Future studies should look into how the subway system affects other pollutants and the overall quality of the air.
-
-In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. \# Reference
+In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. Reference
 
 # Reference
