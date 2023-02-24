@@ -27,7 +27,7 @@ The study aims to investigate the effect of subways on urban air pollution by us
 The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
 
 ## Analysis Tool
-The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R @R  with packages of tidyverse(@tidyverse), dplyr(@dplyr). The tables is constructed via knitr(@knite). The package inside of tidyverse helps to create the plots via ggplot2(@tidyverse). This paper is knitted as PDF file by the packages of R markdown (@RMarkdown).
+The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R @R  with packages of tidyverse @tidyverse, dplyr @dplyr. The tables is constructed via knitr @knitr. The package inside of tidyverse helps to create the plots via ggplot2 @tidyverse. This paper is knitted as PDF file by the packages of R markdown @RMarkdown.
 
 # Data
 
@@ -35,7 +35,7 @@ All the data that is used for replication in this paper is collected by Nicolas 
 
 ## Pollution Measured by Satellite
 
-The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectrometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution. (@Remer, L. A., S. Mattooand R. C. Levy, and L. A. Munchak. 2013. Modis 3km aerosol product: algorithm and global perspective. Atmospheric Measurement Techniques 6: 1829--1844.)
+The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectrometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution @z. 
 
 ## Subway Data
 
@@ -84,7 +84,10 @@ subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridersh
 
 subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership,ReferencePeriod,Month)
 
-kable(head(subway_data,5), caption = "Subway City (First 5 rows)")
+table <- subway_data %>%
+  select(Country, Urbanname, Year, Ridership,ReferencePeriod)
+  
+kable(head(table,5), caption = "Subway City (First 5 rows)")
 ```
 
 In the Figure 1, with the year on the x-axis, the ridership on the y-axis, and the year denoted by the fill colour, the plot shows ridership statistics for Valparaiso, Chile. The fill colour is a gradient from yellow to red, and the plot is named "Ridership in Valparaiso, Chile". The theme and theme classic functions have been used to alter the plot's theme and font characteristics. The x-axis, y-axis, and fill colour names are specified using the labs function, and the gradient fill colour is specified using the scale fill gradient function. The ridership data is converted to a numeric representation using the as.numeric function, and the data is changed from thousands to tens of thousands by dividing by 1000. This graph is similar to Table 1. Instead of using numbers, this plot provide a more vivid trend of the change in ridership. 
@@ -163,9 +166,9 @@ In Table 2, the table includes information on Valparaiso, Chile's public transit
 library(here)
 library(dplyr)
 
-subway_data_monthly%>%group_by(Country)%>%summarise(Total=sum(as.numeric(Ridership),na.rm=T))
+new <- subway_data_monthly%>%group_by(Country)%>%summarise(Total=sum(as.numeric(Ridership),na.rm=T))%>%filter(Country=="Chile")
 
-subway_data_monthly%>%filter(Country=="Chile")
+kable(head(subway_data_monthly,5), caption = "Subway City in Chile (First 5 rows)")
 ```
 
 
@@ -202,7 +205,7 @@ pm10%>%group_by(Country)%>%
 
 In Figure 4, the  mean of PM10 for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualization is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
  
-```{r ,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
+```{r ,fig.width= 25,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
 #| warning: false
 #| echo: false
@@ -217,6 +220,9 @@ ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
   theme_minimal()
 ```
 
+```{r,warning = FALSE ,echo=FALSE,message=FALSE}
+subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+```
 
 
 Two smoothed lines are added by the code to the plot in order to highlight the data's pattern and overall distributional shape. A linear regression line is the first flattened line, and a smoothed curve called a Loess curve is the second smoothed line.
