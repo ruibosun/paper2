@@ -8,7 +8,7 @@ format: pdf
 bibliography: "bib.bib"
 ---
 
-# Introduction
+# 1. Introduction
 
 Air pollution is a significant contributor to the development of disease and premature death, and is widely recognized as the largest environmental risk factor to human health globally @a. Exposure to air pollution increases the risk of premature mortality from heart disease, stroke, and lung cancer. Advances in health and atmospheric sciences have made it possible to estimate the number of deaths and illnesses associated with air pollution, using information from peer-reviewed scientific literature. The relationship between population-level pollution exposure, both short-term and long-term, and adverse health outcomes, including premature death and hospital visits, is expressed through the concentration-response function. From @b, the Institute for Health Metrics and Evaluation and the Health Effects Institute, and the World Health Organization have developed estimates of air pollution-attributable deaths and other adverse health outcomes globally and for individual countries @c.
 
@@ -26,30 +26,30 @@ The study aims to investigate the effect of subways on urban air pollution by us
 
 The results of a study on the Aerial Optical Depth (AOD) within 10 km of city centers using satellite imagery from Terra and Aqua satellites. The study aimed to evaluate the relationship between the remotely-sensed AOD and ground-measured particulate matter (pm10 and pm2.5). The results show that AOD is a highly predictive measure of ground-measured particulate matter and the relationship is not sensitive to the exact region used to calculate city average AOD. The study used a monthly average of AOD readings within 10 km of the city center, calculated by averaging over all pixel-days of AOD readings that fall in this region during the month and weighting by the number of pixels observed each day. The results showed that in 2017, the average AOD reading within 10 km of a city center from the Aqua satellite was 0.40 and higher in Asian cities, whereas it was lower in European and North American cities. The second panel of Table 1 presents the AOD averages for 2000 using only the Terra satellite.
 
-## Analysis Tool
+## 1.1 Analysis Tool
 The data will be presented clearly and succinctly with these visuals, making it simpler to comprehend the relation between air pollution and subway. This following analysis is processed in R @R  with packages of tidyverse @tidyverse, dplyr @dplyr. The tables is constructed via knitr @knitr. The package inside of tidyverse helps to create the plots via ggplot2 @tidyverse. This paper is knitted as PDF file by the packages of R markdown @RMarkdown.
 
-# Data
+# 2. Data
 
 All the data that is used for replication in this paper is collected by Nicolas Gendron-Carrier et al. Their study collected data from multiple sources and employed various techniques to analyze the data and draw conclusions about the impact of subway systems on air pollution.
 
-## Pollution Measured by Satellite
+## 2.1 Pollution Measured by Satellite
 
 The study used satellite imagery to measure the concentration of particulates in the air. The study uses data from satellites to measure the aerosol optical depth (AOD) of the atmosphere at a 3km spatial resolution. The Moderate Resolution Imaging Spectrometers on Terra and Aqua earth-observing satellites provide daily AOD measures. The satellite data was collected from the NASA MODIS instrument, which provides measurements of particulate matter at a resolution of 10 kilometers. The satellite data was then combined with ground-based measurements of particulate matter to create a comprehensive dataset that could be used to analyze the impact of subway systems on air pollution @z. 
 
-## Subway Data
+## 2.2 Subway Data
 
 Furthermore, the study also collected data on the opening of subway systems in various cities around the world. The data included the date of the subway system opening, the location of the subway system, and the size of the subway system. manually collected data on the latitude, longitude, and date of opening of every subway station in the world between January 2012 and February 2014. They updated the data in 2020 using online sources and Google Maps. The data were used to construct a monthly panel that describes the count of operational stations in each subway city between February 2000 and December 2017, which was the time period for which air pollution data were available.
 
 To analyze the impact of subway systems on air pollution, the study used a difference-in-differences approach. This involved comparing the change in particulate concentrations in cities with newly opened subway systems to the change in particulate concentrations in cities without new subway systems. The study also compared the change in particulate concentrations in cities with high initial pollution levels to the change in particulate concentrations in cities with low initial pollution levels.
 
-## Possible Confounding Variables
+## 2.3 Possible Confounding Variables
 
 To account for other factors that could affect particulate concentrations, such as changes in weather or seasonal variations, the study used a variety of statistical techniques, including regression analysis and fixed effects models. The study also controlled for other variables that could affect air pollution, such as population density, income levels, and proximity to industrial areas.
 
-# Example in Chile
+# 3. Example in Chile
 
-## Ridership in Chile
+## 3.1 Ridership in Chile
 
 The effect of subway systems on global urban air pollution is examined. A description of the world's subway networks and a measurement of airborne particles called Aerosol Optical Depth (AOD), which satellites acquired between February 2000 and December 2017, are its two main data sources. To determine the causal relationship between the opening of a subway system and changes in AOD within a city, the analysis compares changes in AOD before and after its establishment.
 
@@ -155,7 +155,7 @@ year_range <- subway_data %>%
 
 
 
-## Subway in Chile
+## 3.2 Subway in Chile
 In Table 2, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time.
 
 ```{r,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
@@ -172,7 +172,7 @@ kable(head(subway_data_monthly,5), caption = "Subway City in Chile (First 5 rows
 ```
 
 
-## PM10 across Countries
+## 3.3 PM10 across Countries
 
 In Figure 3, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
 
@@ -182,7 +182,7 @@ In Figure 3, the plot shows the average annual PM10 values for each nation, expr
 #| warning: false
 #| echo: false
 #| label: fig-four
-#| fig-cap: "pm10"
+#| fig-cap: "Average of PM10 Yearly"
 library(readxl)
 raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
@@ -210,7 +210,7 @@ In Figure 4, the  mean of PM10 for each nation in each year is displayed on this
 #| warning: false
 #| echo: false
 #| label: fig-five
-#| fig-cap: "Relation by year"
+#| fig-cap: "Change of PM10 Annual mean in different Year"
 
 ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
   geom_point() +
@@ -245,7 +245,7 @@ library(knitr)
 kable(head(new_subway_city,10), caption = "Subway_City (First 5 rows)")
 ```
 
-# Conclusion
+# 4. Conclusion
 
 The paper discussed here is a study to investigate the impact of subway systems on air pollution in cities around the world. The study used two main data sources: satellite-recorded descriptions of the world's subway systems between February 2000 and December 2017 and measurements of the aerosol optical depth (AOD) of particulate matter in the air. The analysis used a comparison of changes in AOD in Chile before and after the opening of the subway system to establish its causality.
 
