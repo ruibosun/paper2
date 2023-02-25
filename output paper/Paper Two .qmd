@@ -79,8 +79,8 @@ In Table 1,The information is limited to the urban area surrounding Valparaiso a
 library(here)
 library(dplyr)
 library(knitr)
-#subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
-subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
+subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+#subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
 
 subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership,ReferencePeriod,Month)
 
@@ -156,16 +156,16 @@ year_range <- subway_data %>%
 
 
 ## 3.2 Subway in Chile
-In Table 2, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time. This table is an analysis of Subway's annual ridership data in Chile from 2005 to 2009. After filtering the data to only include records for Chile, the new data is converted the Ridership column to a numeric format by removing commas. The table indicates the total ridership for each year in Chile. It is clear to see that the annual ridership increae each year. Especially in 2005-2006, the ridership increase more than 7,000,000.
+In table two, the table includes information on Valparaiso, Chile's public transit system ridership, among other things. The data provides information on the total number of ridership for each year but not the particular months or quarters during which the ridership was logged. Annually is the reference time. This table is an analysis of Subway's annual ridership data in Chile from 2005 to 2009. After filtering the data to only include records for Chile, the new data is converted the Ridership column to a numeric format by removing commas. The table indicates the total ridership for each year in Chile. It is clear to see that the annual ridership increae each year. Especially in 2005-2006, the ridership increase more than 7,000,000.
 
 ```{r,fig.width= 15,fig.height= 20,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
 #| warning: false
 #| echo: false
-#| label: Tab-two
+#| label: two
+
 library(here)
 library(dplyr)
-
 
 new <- subway_data_monthly%>%filter(Country=="Chile")
 #new$Ridership<-as.numeric(new$Ridership)
@@ -201,7 +201,7 @@ kable(mytable, caption = "Annaul Ridership in China (2005-2019)")
 
 ## 3.3 PM10 in Different Countries
 
-In @fig-three, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
+In @fig-four, the plot shows the average annual PM10 values for each nation, expressed in micrograms per cubic metre. The data is organised by nation, and each country's colour is represented by a different bar. The plot offers a visual depiction of the yearly average PM10 values by country and can be used to spot trends or variations in air quality between nations. According to the plot, it is obvious that Afghanistan and Pakistan are the two countries that suffer the most from PM10, followed by Bahrain. Note that the data does not contain the data from some countries. 
 
 
 ```{r ,fig.width= 8,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
@@ -211,8 +211,8 @@ In @fig-three, the plot shows the average annual PM10 values for each nation, ex
 #| label: fig-four
 #| fig-cap: "Average of PM10 Yearly"
 library(readxl)
-#raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
-raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
+raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
+#raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
 raw_pm10$Year...4<-as.numeric(as.character(raw_pm10$Year...4))
 pm10<-raw_pm10%>%select(...2,`Annual mean, ug/m3...3`, Year...4)%>%filter(!is.na(...2))
@@ -231,7 +231,7 @@ pm10%>%group_by(Country)%>%
 
 ```
 
-In @fig-four, the  mean of PM10 for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualization is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
+In @fig-five, the  mean of PM10 for each nation in each year is displayed on this graph. The scatter diagram for the PM10 Annual mean values by year in the pm10 dataset with two fitted regression lines. The PM10 data to be used for the visualization is first specified in the code, after which the Year variable is mapped to the x-axis and the PM10 Annual mean, ug/m3 variable to the y-axis.
  
 ```{r ,fig.width= 25,fig.height= 10,warning = FALSE ,echo=FALSE,message=FALSE}
 #| eval: true
@@ -249,7 +249,7 @@ ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
 ```
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
-subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
 ```
 
 
