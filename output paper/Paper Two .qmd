@@ -1,8 +1,8 @@
 ---
 title: "The Impact of Subway Systems on Air Pollution"
 author: 'Shaohan Chang and Ruibo Sun'
-abstract: The investigation into how subway system openings affect urban air pollution, with a focus on particulate concentrations, is presented in this abstract. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city center, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
-thanks: 'The code and the data are in https://github.com/ruibosun/paper2 .The replication of various aspects in this paper are available at  https://doi.org/10.3386/w24183' 
+abstract: The goal is to investigate into how subway system openings affect urban air pollution, with a focus on particulate concentrations. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city center, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
+thanks: 'The code and the data are in https://github.com/ruibosun/paper2 .The replication of various aspects in this paper are available at https://doi.org/10.48152/ssrp-h2ct-4j42' 
 date: 02-20-2023
 date-format: "MM/DD/YYYY"  
 format: pdf
@@ -79,8 +79,8 @@ In Table 1,The information is limited to the urban area surrounding Valparaiso a
 library(here)
 library(dplyr)
 library(knitr)
-subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
-#subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/Subway_Ridership_V4.csv')
+#subway_data_raw <- read.csv(file = '/Users/lucas/Documents/paper2/Subway_Ridership_V4.csv')
+subway_data_raw <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/inputs/data/Subway_Ridership_V4.csv')
 
 subway_data<-subway_data_raw%>%select(Country, Urbanname, Year, Ridership,ReferencePeriod,Month)
 
@@ -211,8 +211,8 @@ In @fig-four, the plot shows the average annual PM10 values for each nation, exp
 #| label: fig-four
 #| fig-cap: "Average of PM10 Yearly"
 library(readxl)
-raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
-#raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/aap_pm_database_may2014.xls", sheet="countries")
+#raw_pm10<-read_excel("/Users/lucas/Documents/paper2/aap_pm_database_may2014.xls", sheet="countries")
+raw_pm10<-read_excel("/Users/xiuzh/Desktop/readingcourse/paper2/inputs/data/aap_pm_database_may2014.xls", sheet="countries")
 raw_pm10$`Annual mean, ug/m3...3`<-as.numeric(as.character(raw_pm10$`Annual mean, ug/m3...3`))
 raw_pm10$Year...4<-as.numeric(as.character(raw_pm10$Year...4))
 pm10<-raw_pm10%>%select(...2,`Annual mean, ug/m3...3`, Year...4)%>%filter(!is.na(...2))
@@ -249,7 +249,8 @@ ggplot(pm10, aes(x=Year , y=`PM10 Annual mean, ug/m3`)) +
 ```
 
 ```{r,warning = FALSE ,echo=FALSE,message=FALSE}
-subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+#subway_city <- read.csv(file = '/Users/lucas/Documents/paper2/subway_date_construction_begins_V2_AEJ_revision.csv')
+subway_city <- read.csv(file = '/Users/xiuzh/Desktop/readingcourse/paper2/inputs/data/subway_date_construction_begins_V2_AEJ_revision.csv')
 ```
 
 
