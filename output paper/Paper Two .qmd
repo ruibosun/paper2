@@ -1,15 +1,15 @@
 ---
 title: "The Impact of Subway Systems on Air Pollution"
 author: 'Shaohan Chang and Ruibo Sun'
-date: 02-20-2023
 abstract: The investigation into how subway system openings affect urban air pollution, with a focus on particulate concentrations, is presented in this abstract. The study discovered that the opening of a subway system was associated with a 4% decrease in particulates in the area of the city center, which persisted over a four-year time horizon, in cities with higher initial pollution levels. In heavily polluted cities, this reduction was projected to have an annual external mortality benefit of about $1 billion. The findings imply that a significant portion of the cost of building subways may be offset by the reduced mortality caused by less air pollution. The results of this study can be repeated in other cities to learn more about the connection between air pollution and subway openings.
-date-format: "MM/DD/YYYY" 
+thanks: 'The code and the data are in https://github.com/ruibosun/paper2 .The replication of various aspects in this paper are available at  https://doi.org/10.3386/w24183' 
+date: 02-20-2023
+date-format: "MM/DD/YYYY"  
 format: pdf
 bibliography: "bib.bib"
 ---
 
 # 1. Introduction
-
 Air pollution is a significant contributor to the development of disease and premature death, and is widely recognized as the largest environmental risk factor to human health globally @a. Exposure to air pollution increases the risk of premature mortality from heart disease, stroke, and lung cancer. Advances in health and atmospheric sciences have made it possible to estimate the number of deaths and illnesses associated with air pollution, using information from peer-reviewed scientific literature. The relationship between population-level pollution exposure, both short-term and long-term, and adverse health outcomes, including premature death and hospital visits, is expressed through the concentration-response function. From @b, the Institute for Health Metrics and Evaluation and the Health Effects Institute, and the World Health Organization have developed estimates of air pollution-attributable deaths and other adverse health outcomes globally and for individual countries @c.
 
 Globally, air pollution was responsible for 8.7% of deaths in 2017, making it the fifth leading mortality risk, with 4.9 million premature deaths worldwide. Canada is among the top 10 countries with the lowest national PM2.5 exposure levels, according to analyses @d . In Canada, air pollution ranks as the 11th largest risk factor overall for premature death and disability, and is the top environmental risk @e.
@@ -47,7 +47,7 @@ To analyze the impact of subway systems on air pollution, the study used a diffe
 
 To account for other factors that could affect particulate concentrations, such as changes in weather or seasonal variations, the study used a variety of statistical techniques, including regression analysis and fixed effects models. The study also controlled for other variables that could affect air pollution, such as population density, income levels, and proximity to industrial areas.
 
-# 3. Results: Example in Chile
+# 3. Example in Chile
 
 ## 3.1 Ridership in Chile
 
@@ -273,7 +273,7 @@ library(knitr)
 kable(head(new_subway_city,10), caption = "Subway_City (First 5 rows)")
 ```
 
-# 4. Discussion
+# 4. Conclusion
 
 The paper discussed here is a study to investigate the impact of subway systems on air pollution in cities around the world. The study used two main data sources: satellite-recorded descriptions of the world's subway systems between February 2000 and December 2017 and measurements of the aerosol optical depth (AOD) of particulate matter in the air. The analysis used a comparison of changes in AOD in Chile before and after the opening of the subway system to establish its causality.
 
@@ -283,15 +283,19 @@ The study also sheds light on traffic behavior in developing nations, concluding
 
 The Terra and Aqua satellites' remote sensing measurements of suspended particulate matter served as the basis for the study's data. Using satellite imagery from the Terra and Aqua satellites, the study evaluated the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5) within 10 km of the city center. The findings demonstrate that AOD is a highly reliable predictor of ground-measured particulate matter and that there is no significant relationship with the precise area used to derive the city-average AOD. The study made use of monthly averages of AOD readings for pixel days that occurred within a 10-kilometer radius of the city center during the month, weighted by the number of pixels observed on each day.
 
-## 4.1 Example in China
-
 There is also study which conducted in China. The results of the study match with our findings. It further suggests two policy recommendations. Firstly, the government should actively promote green transportation as an alternative to motor vehicles. This can be achieved by increasing the availability of green vehicles and reducing the number of public motor vehicles to reduce emissions. Secondly, the development of subway systems should be rationally planned to minimize the negative impact on urban air pollution, particularly PM2.5. The government can increase the accessibility of subways by developing a complex subway network, which can help meet residents' travel demands and reduce emissions. However, expanding existing subway lines may not be enough to change people's travel mode, so it may be more effective to increase the number of subway lines. Since subway projects are expensive, a rational plan for the subway network can help achieve the goal of reducing air pollution while also considering the fiscal investment required @g. The study's use of changes in AOD levels to gauge the effect of the subway system on air pollution has some limitations. Although AOD is a trustworthy indicator of air pollution, it is only one facet of the intricate issue of urban air pollution. Future studies should look into how the subway system affects other pollutants and the overall quality of the air.
-
-## 4.2 Bias and Limitaion
-
-Nevertheless, there is a potential for both confounding bias and sampling bias. Confounding bias can occur when other factors, such as traffic or industrial emissions, also contribute to air pollution in subway stations. If these factors are not controlled for in a study, it may be challenging to accurately attribute air pollution levels solely to subways. Similarly, sampling bias can occur when studies only look at specific cities or types of pollution, which may not be representative of the broader population. This can lead to incomplete or inaccurate conclusions about the relationship between subways and urban air pollution. Therefore, it is essential to account for these biases for future studies and to consider a diverse range of locations and pollution types to obtain a comprehensive understanding of the topic.
 
 In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. 
 
-\newpage
+# Claims identified by reproducer
+
+1. Subway systems can reduce air pollution: The study found that opening subways in an average city could prevent infant deaths and total deaths per year, suggesting that subway systems may be cost-effective in reducing air pollution, especially in cities with high initial levels of aerosol optical depth (AOD).
+
+2. No difference in traffic behavior between developed and developing cities: The study concluded that there are no differences in the way developed and developing cities react to subways, which is a significant finding for developing nations that may have a greater need for affordable air pollution solutions.
+
+3. AOD is a reliable predictor of ground-measured particulate matter: The study used satellite imagery and remote sensing measurements of suspended particulate matter to evaluate the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5). The findings demonstrated that AOD is a highly reliable predictor of ground-measured particulate matter.
+
+
+
+
 # Reference
