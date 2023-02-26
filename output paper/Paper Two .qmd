@@ -287,7 +287,7 @@ There is also study which conducted in China. The results of the study match wit
 
 In conclusion, the studies covered in this article offer crucial details on how subway systems affect air pollution in urban areas around the globe. The findings imply that subway systems might reduce air pollution in cities with high initial levels of AOD at a reasonable cost. The findings of this study could be used by policymakers to decide whether to implement subway systems as a way to reduce air pollution. 
 
-# Claims identified by reproducer
+# 5. Claims identified by reproducer
 
 1. Subway systems can reduce air pollution: The study found that opening subways in an average city could prevent infant deaths and total deaths per year, suggesting that subway systems may be cost-effective in reducing air pollution, especially in cities with high initial levels of aerosol optical depth (AOD).
 
