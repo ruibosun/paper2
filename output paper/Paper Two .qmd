@@ -295,7 +295,6 @@ In conclusion, the studies covered in this article offer crucial details on how 
 
 3. AOD is a reliable predictor of ground-measured particulate matter: The study used satellite imagery and remote sensing measurements of suspended particulate matter to evaluate the correlation between remotely sensed AOD and ground-based measurements of particulate matter (pm10 and pm2.5). The findings demonstrated that AOD is a highly reliable predictor of ground-measured particulate matter.
 
-
-
+\newpage
 
 # Reference
